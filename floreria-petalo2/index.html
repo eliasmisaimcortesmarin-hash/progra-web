@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Suspiros en flor · Envío de flores a domicilio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="top">
+  <a href="#inicio"><img src="images/logo.svg" alt="Suspiros en flor" class="logo"></a>
+  <div class="links"><a href="#flores">Flores</a><a href="#cuidados">Cuidados</a><a href="#pedido">Pedido</a></div>
+</nav>
+<section class="hero" id="inicio">
+  <div>
+    <h1>Regala flores,<br>regala suspiros</h1>
+    <p>Flores frescas con entrega a domicilio. Elige tu favorita, personaliza tu detalle y nosotros lo llevamos.</p>
+    <a class="btn" href="#pedido">Hacer pedido</a>
+  </div>
+</section>
+
+<main>
+  <h2 id="flores">Nuestras flores</h2>
+  <p class="sub">Marca las que quieras y elige cuántos ramos.</p>
+  <div class="grid" id="catalogo"></div>
+
+  <h2 id="cuidados">Cuida tus flores</h2>
+  <p class="sub">Cuatro consejos para que duren más.</p>
+  <div class="cuidados">
+    <div style="background:var(--cielo)"><span>💧</span><h3>Agua fresca</h3><p>Cámbiala cada 1 o 2 días y usa un florero limpio.</p></div>
+    <div style="background:var(--rosa)"><span>✂️</span><h3>Corta el tallo</h3><p>Un corte en diagonal de 2 cm ayuda a que absorban mejor el agua.</p></div>
+    <div style="background:var(--durazno)"><span>☀️</span><h3>Lejos del sol</h3><p>Colócalas en un lugar fresco, sin sol directo ni corrientes de aire.</p></div>
+    <div style="background:var(--menta)"><span>🍃</span><h3>Quita hojas</h3><p>Retira las hojas que queden bajo el agua para evitar bacterias.</p></div>
+  </div>
+
+  <h2 id="pedido">Tu pedido</h2>
+  <p class="sub">Llena los datos de entrega.</p>
+  <form id="f" novalidate>
+    <div class="cols">
+      <div><label class="lbl" for="nom">Tu nombre</label><input id="nom" required></div>
+      <div><label class="lbl" for="tel">Teléfono</label><input id="tel" type="tel" required></div>
+      <div><label class="lbl" for="dest">Nombre de quien recibe</label><input id="dest" required></div>
+      <div><label class="lbl" for="fecha">Fecha de entrega</label><input id="fecha" type="date" required></div>
+    </div>
+    <div><label class="lbl" for="dir">Dirección de entrega</label><input id="dir" required></div>
+    <div class="cols">
+      <div><label class="lbl" for="oca">Ocasión</label>
+        <select id="oca"><option>Cumpleaños</option><option>Aniversario</option><option>Día de las madres</option><option>Agradecimiento</option><option>Sin ocasión, solo porque sí</option></select></div>
+      <div><label class="lbl" for="pres">Presentación</label>
+        <select id="pres" data-precio="0"><option value="0">Papel kraft (incluido)</option><option value="40">Caja redonda (+$40)</option><option value="70">Florero de vidrio (+$70)</option></select></div>
+    </div>
+    <fieldset><legend>Horario de entrega</legend>
+      <div class="op">
+        <label><input type="radio" name="hora" value="Mañana (9–13 h)" checked> Mañana (9–13 h)</label>
+        <label><input type="radio" name="hora" value="Tarde (13–18 h)"> Tarde (13–18 h)</label>
+        <label><input type="radio" name="hora" value="Noche (18–21 h)"> Noche (18–21 h)</label>
+      </div></fieldset>
+    <fieldset><legend>Extras</legend>
+      <div class="op">
+        <label><input type="checkbox" class="extra" data-n="Tarjeta con mensaje" value="20"> Tarjeta con mensaje (+$20)</label>
+        <label><input type="checkbox" class="extra" data-n="Chocolates" value="90"> Chocolates (+$90)</label>
+        <label><input type="checkbox" class="extra" data-n="Globo" value="50"> Globo (+$50)</label>
+        <label><input type="checkbox" class="extra" data-n="Peluche" value="120"> Peluche (+$120)</label>
+      </div></fieldset>
+    <div><label class="lbl" for="msg">Mensaje para la tarjeta (opcional)</label><textarea id="msg" rows="3" maxlength="200"></textarea></div>
+    <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="anon"> Enviar de forma anónima</label>
+    <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="acepto" required> Acepto los términos y el aviso de privacidad</label>
+    <div class="total"><span>Total (envío $60 incluido)</span><span id="total">$60</span></div>
+    <div class="err" id="err"></div>
+    <button class="btn" type="submit">Confirmar pedido</button>
+  </form>
+  <div class="ok" id="ok"></div>
+</main>
+<footer>
+  <div class="fgrid">
+    <div><img src="images/logo.svg" alt="Suspiros en flor" class="logo flogo"><p>Flores frescas para cada momento especial.</p></div>
+    <div><h4>Explora</h4><a href="#flores">Nuestras flores</a><a href="#cuidados">Cuidados</a><a href="#pedido">Hacer pedido</a></div>
+    <div><h4>Contacto</h4><p>📞 (443) 000 0000<br>✉️ hola@suspirosenflor.com<br>🕘 Lun a Sáb, 9:00–20:00</p></div>
+  </div>
+  <div class="copy">© 2026 Suspiros en flor</div>
+</footer>
+
+<script>
+const flores=[
+ {id:"rosas",n:"Rosas",i:"🌹",p:350,d:"Docena de rosas rojas, clásicas y románticas.",c:"var(--rosa)"},
+ {id:"tulipanes",n:"Tulipanes",i:"🌷",p:320,d:"Ramo de 10 tulipanes de colores suaves.",c:"var(--lila)"},
+ {id:"girasoles",n:"Girasoles",i:"🌻",p:280,d:"Seis girasoles que alegran cualquier día.",c:"var(--durazno)"},
+ {id:"gerberas",n:"Gerberas",i:"🌼",p:260,d:"Ramo de 12 gerberas multicolor.",c:"var(--cielo)"},
+ {id:"lirios",n:"Lirios",i:"🪷",p:380,d:"Ocho lirios blancos, elegantes y aromáticos.",c:"var(--menta)"}
+];
+const ENVIO=60,$=s=>document.querySelector(s);
+$("#catalogo").innerHTML=flores.map(f=>`
+ <div class="flor">
+  <div class="ico" style="background:${f.c}"><img src="images/${f.id}.jpg" alt="${f.n}" loading="lazy" onerror="this.parentNode.textContent='${f.i}'"></div>
+  <h3>${f.n}</h3><small>${f.d}</small>
+  <div class="precio">$${f.p}</div>
+  <label class="sel"><input type="checkbox" class="fl" id="c-${f.id}" data-id="${f.id}"> Agregar</label>
+  <input type="number" id="q-${f.id}" min="1" max="10" value="1" disabled aria-label="Cantidad de ${f.n}">
+ </div>`).join("");
+const hoy=new Date();hoy.setDate(hoy.getDate()+1);$("#fecha").min=hoy.toISOString().slice(0,10);
+function calc(){
+ let t=ENVIO;
+ flores.forEach(f=>{const c=$("#c-"+f.id),q=$("#q-"+f.id);q.disabled=!c.checked;if(c.checked)t+=f.p*Math.max(1,+q.value||1)});
+ document.querySelectorAll(".extra:checked").forEach(e=>t+=+e.value);
+ t+=+$("#pres").value;
+ $("#total").textContent="$"+t;return t;
+}
+document.addEventListener("input",calc);document.addEventListener("change",calc);
+$("#f").addEventListener("submit",e=>{
+ e.preventDefault();
+ const sel=flores.filter(f=>$("#c-"+f.id).checked);
+ const req=["nom","tel","dest","fecha","dir"].every(id=>$("#"+id).value.trim());
+ if(!sel.length)return $("#err").textContent="Elige al menos una flor del catálogo.";
+ if(!req)return $("#err").textContent="Completa todos los datos de entrega.";
+ if(!$("#acepto").checked)return $("#err").textContent="Debes aceptar los términos para continuar.";
+ $("#err").textContent="";
+ const extras=[...document.querySelectorAll(".extra:checked")].map(x=>x.dataset.n);
+ const ok=$("#ok");
+ ok.innerHTML=`<strong>¡Gracias, ${$("#nom").value}! Tu pedido fue registrado 💐</strong><br>
+ ${sel.map(f=>f.n+" ×"+($("#q-"+f.id).value||1)).join(", ")}<br>
+ Para ${$("#dest").value} · ${$("#fecha").value} · ${document.querySelector("input[name=hora]:checked").value}<br>
+ Extras: ${extras.length?extras.join(", "):"ninguno"}${$("#anon").checked?" · Envío anónimo":""}<br>
+ <strong>Total: $${calc()}</strong>`;
+ ok.classList.add("show");ok.scrollIntoView({behavior:"smooth"});
+});
+</script>
+</body>
+</html>

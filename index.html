@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>LAPSTOP</title>
+    <meta charset="UTF-8">
+    <style>
+
+        table{
+            width: 100%;
+        }
+       table,th,td{
+        border:3px solid rgb(103, 0, 148);
+        border-radius: 1px;
+        border-style: ridge;
+        text-align: center;
+    }
+       td{
+        background-color: rgba(24, 211, 249, 0.329);
+       }
+       th{
+        background-color: #3d75f058;
+       }
+       tbody th:hover{
+        background-color: rgb(222, 27, 225);
+       }
+       tbody td:hover{
+        background-color: rgb(255, 5, 184);
+       }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="https://www.asus.com/mx/store/laptops/">
+        <img src="logo_chido.png" alt="logo" width=100 height=100><img>
+    </a>
+    <nav>
+    <a>Inicio</a>
+    <a >Servicios</a>
+    <a >Contacto</a>
+  </nav>
+  
+</header>
+    
+    <center><h1>lapstop</h1></center>
+    
+    
+    <br>
+    <center><p>Las mejores laptos a tu disposicion </p></center>
+    
+    <body style="background-color:#f4f5f6 "</body>
+    <b>negritas</b> <br>
+    <strong>negritas</strong><br>
+    <i>cursiva</i><br>
+    <em>cursiva</em><br>
+    <mark>marcatextos</mark><br>
+    <small>pequeño</small><br>
+    <del>tachado</del><br>
+    <ins>subrradado</ins><br>
+    <sub>subinde abajo</sub><br>
+    <sup>subindice arriba</sup><br>
+    <address>direccion</address>
+    <cite>dcdsdsds</cite><br>
+    <br>
+
+    <table style="width: 100%">
+        <caption>Tabla muestra</caption>
+        <colgroup>
+        
+
+        </colgroup>
+        <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>Edad</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Juan</td>
+            <td>67</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Magui</td>
+            <td>21</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>brian</td>
+            <td>21</td>
+        </tr>
+    </table>
+    <br>
+
+    <table>
+        <caption>tabla muestra dos</caption>
+ 
+        <tr>
+            <th>id</th>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>Elias</td>
+            <td>Magui</td>
+            <td>bri</td>
+        </tr>
+        <tr>
+            <th>edad</th>
+            <td>21</td>
+            <td>21</td>
+            <td>32</td>
+        </tr>
+    </table>
+    <br>
+
+    <table>
+        <caption>Tabla muestra tres</caption>
+        <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <th>id</th>
+        </tr>
+        <tr>
+        <td>Brian</td>
+        <td>Elias</td>
+        <td>Magui</td>
+        <th>Name</th>
+        </tr>
+        <tr>
+        <td>12</td>
+        <td>33</td>
+        <td>21</td>
+        <th>edad</th>
+        </tr>
+        </th>
+        </tr>
+    </table>
+
+    <br>
+
+   <table >
+    <caption>tabla muestra cuatro</caption>
+    <tr>
+      <td>1</td>
+      <td>Elias</td>
+      <td>21</td>
+    </tr>
+
+    <tr>
+      <td>2</td>
+      <td>Magui</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Bri</td>
+      <td>67</td>
+    </tr>
+  
+  
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Edad</th>
+    </tr>
+  
+</table><br>
+
+<form>
+    <label for="fname">First name: </label>
+    <br>
+    <input type="text" id="fname" name="fname" placeholder="nombre"><br>
+    <label for="lname">Last name</label><br>
+    <input type="text" id="lname" name="lname" placeholder="apellido">
+</form>
+
+
+<h2>Radio Buttons</h2>
+
+<p>Choose your favorite Web language:</p>
+
+<form>
+  <input type="radio" id="html" name="fav_language" value="HTML">
+  <label for="html">HTML</label><br>
+  <input type="radio" id="css" name="fav_language" value="CSS">
+  <label for="css">CSS</label><br>
+  <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+  <label for="javascript">JavaScript</label>
+</form><br>
+
+
+<h2>Probando JS</h2>
+ <p id="demo">esto me deja sobre escribir </p>
+ <button type="button" onclick='document.getElementById("demo").innerHTML="ya lo hizo" '>clickea</button>
+ <br><br>
+
+ <button
+ onclick="document.getElementById('myImage')
+ .src='playa.jpg'"> turn on the image
+ </button>
+
+ <img id="myImage" src="playa negro.jpg" style="width: 400px;">
+
+ <button
+ onclick="document.getElementById('myImage')
+ .src='playa negro.jpg'">turn off the image</button>
+ <h1>Probando JS</h1>
+ <p>ITM la mejor escuela</p>
+ <p id="demo"></p>
+ <script>
+    document.getElementById("demo").innerHTML="<h2>mensaje 1 de N </h2>";
+ </script> 
+
+
+</body>
+</html>

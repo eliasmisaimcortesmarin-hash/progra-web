@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Obtén tu cupón</title>
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(160deg, #e8f0f7, #f4eef6);
+    color: #2f3e46;
+    margin: 0;
+    min-height: 100vh;
+    padding: 40px 15px;
+  }
+
+  .tarjeta {
+    background: white;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 32px 28px;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(58, 110, 165, 0.12);
+  }
+
+  h1 {
+    text-align: center;
+    margin: 0 0 6px;
+    color: #3a6ea5;
+    font-size: 28px;
+  }
+
+  .subtitulo {
+    text-align: center;
+    color: #7a8a93;
+    margin: 0 0 24px;
+    font-size: 15px;
+  }
+
+  label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #5c6b73;
+    margin-bottom: 6px;
+  }
+
+  input {
+    width: 100%;
+    padding: 11px 12px;
+    margin-bottom: 18px;
+    font-size: 15px;
+    border: 1px solid #d0dbe3;
+    border-radius: 10px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: #3a6ea5;
+    box-shadow: 0 0 0 3px rgba(58, 110, 165, 0.15);
+  }
+
+  /* Botones de sexo */
+  .opciones-sexo {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+
+  .btn-sexo {
+    flex: 1;
+    padding: 11px;
+    font-size: 15px;
+    background: white;
+    color: #5c6b73;
+    border: 1px solid #d0dbe3;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-sexo:hover {
+    border-color: #3a6ea5;
+    color: #3a6ea5;
+  }
+
+  .btn-sexo.activo {
+    background: #3a6ea5;
+    border-color: #3a6ea5;
+    color: white;
+    font-weight: 600;
+  }
+
+  .btn-principal {
+    width: 100%;
+    padding: 13px;
+    font-size: 16px;
+    font-weight: 600;
+    background: #3a6ea5;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+
+  .btn-principal:hover { background: #2f5b8a; }
+  .btn-principal:active { transform: scale(0.98); }
+
+  .error {
+    color: #c0392b;
+    font-size: 14px;
+    text-align: center;
+    min-height: 20px;
+    margin: 0 0 10px;
+  }
+
+  #resultado {
+    text-align: center;
+    margin-top: 24px;
+  }
+
+  #resultado h2 {
+    margin: 0 0 4px;
+    color: #3a6ea5;
+  }
+
+  #resultado p {
+    margin: 0 0 12px;
+    color: #7a8a93;
+  }
+
+  #resultado img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    animation: aparecer 0.4s ease;
+  }
+
+  @keyframes aparecer {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<div class="tarjeta">
+  <h1>Obtén tu cupón</h1>
+  <p class="subtitulo">Llena tus datos y descubre tu premio</p>
+
+  <label for="nombre">Nombre</label>
+  <input type="text" id="nombre" placeholder="Escribe tu nombre">
+
+  <label for="edad">Edad</label>
+  <input type="number" id="edad" min="1" max="120" placeholder="Escribe tu edad">
+
+  <label>Sexo</label>
+  <div class="opciones-sexo">
+    <button type="button" class="btn-sexo" id="btnHombre" onclick="elegirSexo('hombre')">Hombre</button>
+    <button type="button" class="btn-sexo" id="btnMujer" onclick="elegirSexo('mujer')">Mujer</button>
+  </div>
+
+  <p class="error" id="error"></p>
+
+  <button class="btn-principal" onclick="mostrarCupon()">Ver mi cupón</button>
+
+  <div id="resultado"></div>
+</div>
+
+<script>
+var sexo = "";
+
+function elegirSexo(valor) {
+  sexo = valor;
+  document.getElementById("btnHombre").classList.toggle("activo", valor == "hombre");
+  document.getElementById("btnMujer").classList.toggle("activo", valor == "mujer");
+}
+
+function mostrarCupon() {
+  var nombre = document.getElementById("nombre").value.trim();
+  var edad = parseInt(document.getElementById("edad").value);
+  var error = document.getElementById("error");
+  var resultado = document.getElementById("resultado");
+  var imagen = "";
+  var texto = "";
+
+  if (nombre == "") {
+    error.textContent = "Escribe tu nombre.";
+    return;
+  }
+  if (isNaN(edad) || edad < 1 || edad > 120) {
+    error.textContent = "Escribe una edad válida.";
+    return;
+  }
+  if (sexo == "") {
+    error.textContent = "Selecciona tu sexo.";
+    return;
+  }
+  error.textContent = "";
+
+  if (edad < 18) {
+    if (sexo == "hombre") {
+      imagen = "imagenes/cupon-avengers.jpg";
+      texto = "Cupón de cine para Avengers";
+    } else {
+      imagen = "imagenes/cupon-barbie.jpeg";
+      texto = "Cupón de cine para Barbie";
+    }
+  } else if (edad <= 30) {
+    if (sexo == "hombre") {
+      imagen = "imagenes/cupon-antro.jpg";
+      texto = "Cupón para el antro";
+    } else {
+      imagen = "imagenes/cupon-spa.jpg";
+      texto = "Cupón para el spa";
+    }
+  } else {
+    if (sexo == "hombre") {
+      imagen = "imagenes/cupon-gym.jpg";
+      texto = "Cupón para el gym";
+    } else {
+      imagen = "imagenes/cupon-brunch.jpg";
+      texto = "Cupón para un brunch";
+    }
+  }
+
+  resultado.innerHTML =
+    "<h2>¡Felicidades, " + nombre + "!</h2>" +
+    "<p>" + texto + "</p>" +
+    "<img src='" + imagen + "' alt='" + texto + "'>";
+}
+</script>
+
+</body>
+</html>

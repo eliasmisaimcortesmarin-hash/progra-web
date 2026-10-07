@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-label="Suspiros en flor">
+<g fill="none" stroke="#14404d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+<path d="M300 40C270 30 245 50 250 78C255 105 285 118 310 108C335 98 345 65 325 48C315 40 305 38 300 40Z"/>
+<path d="M290 66C300 54 320 62 315 79C311 92 293 93 288 81"/>
+<path d="M250 78C228 74 215 88 222 102C232 118 262 122 282 110"/>
+<path d="M325 48C345 50 356 66 348 84C340 100 322 108 310 108"/>
+<path d="M298 118C296 160 292 200 282 240"/>
+<path d="M296 170C315 150 340 148 352 160C345 180 318 190 296 170Z"/>
+<path d="M298 170C315 165 330 160 348 158"/>
+<path d="M290 205C270 188 248 190 238 202C250 220 275 220 290 205Z"/>
+</g>
+<text x="300" y="325" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="92" font-weight="700" letter-spacing="2" fill="#14404d">SUSPIROS</text>
+<text x="300" y="378" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="34" letter-spacing="6" fill="#14404d">EN FLOR</text>
+</svg>

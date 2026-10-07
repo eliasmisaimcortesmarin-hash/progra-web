@@ -1,0 +1,9 @@
+Coloca aquí las fotos con estos nombres exactos:
+hero.jpg (foto grande de fondo, ideal horizontal y de 1600 px o más)
+rosas.jpg
+tulipanes.jpg
+girasoles.jpg
+gerberas.jpg
+lirios.jpg
+
+logo.svg ya está incluido.
